@@ -1,2 +1,2 @@
 # InstallWinApps
-PowerShell script to install windows applications
+PowerShell script to uninstall and install windows applications
