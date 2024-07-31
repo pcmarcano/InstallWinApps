@@ -1,8 +1,114 @@
+Clear-Host
+
+# Get current windows version
+#Get-ComputerInfo | Select-Object WindowsVersion, WindowsBuildLabEx
+#[System.Environment]::OSVersion.Version
+# Get the OS version information
+$osVersion = [System.Environment]::OSVersion.Version
+
+# Extract the major version number
+$majorVersion = $osVersion.Major
+# Extract the build number
+$buildVersion = $osVersion.Build
+
+# Output the major version number (optional)
+Write-Host "Windows $majorVersion Build $buildVersion"
+
+
+
 # Check if winget is installed
-if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-    Write-Output "winget is not installed on this system."
-    Write-Output "Please install winget and try again."
-    exit
+function checkWinget {
+    if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+        Write-Output "winget is not installed on this system."
+        Write-Output "Please install winget and try again."
+        return $false
+    }
+    return $true
+}
+
+
+
+# Check if the computer is conected to the internet
+function CheckInternetOne {
+
+    # Using Test-Connection to check internet connectivity
+    $test = Test-Connection -ComputerName www.google.com -Count 1 -Quiet
+
+    if ($test) {
+        return $true
+    }
+    else {
+        return $false
+    }
+}
+
+function CheckInternetTwo {
+
+    # Using Invoke-WebRequest to check internet connectivity
+    try {
+        $response = Invoke-WebRequest -Uri http://www.google.com -UseBasicParsing -TimeoutSec 5
+        if ($response.StatusCode -eq 200) {
+            Write-Host "Connected to the Internet."
+            return $true
+        }
+    }
+    catch {
+        Write-Host "Not connected to the Internet."
+        return $false
+    }
+}
+
+function menu {
+    <#     param (
+        OptionalParameters
+    ) #>
+
+    # Prompt the user for input
+    Write-Host "Please choose an option (1, 2, or 3):"
+    Write-Host "1. PowerShell"
+    Write-Host "2. Option 2"
+    Write-Host "3. Option 3"
+    $choice = Read-Host "Enter your choice"
+
+    # Process the input
+    switch ($choice) {
+        "1" {
+            Write-Host "Getting PowerShell"
+            winget install 9MZ1SNWT0N5D
+        }
+        "2" {
+            Write-Host "You chose: patushb"
+        }
+        "3" {
+            Write-Host "You chose: patushc"
+        }
+        default {
+            Write-Host "Invalid choice. Please enter a number between 1 and 3."
+        }
+    }
+}
+
+$winGet = checkWinget
+if ($winGet) {
+    Write-Host "WinGet installed"
+    $isConnected = CheckInternetOne
+    if ([System.Boolean]$isConnected) {
+        Write-Host "Connected to the Internet."
+        menu
+    }
+    else {
+        Write-Host "Not Connected to the Internet."
+        Write-Host "Trying another methord"
+        $isConnected = CheckInternetTwo
+        
+        if ([System.Boolean]$isConnected) {
+            Write-Host "Connected to the Internet."
+            menu
+        }
+        else {
+            Write-Host "Not Connected to the Internet."
+        }
+    }
 }
 
 # Prompt user for application name
@@ -15,3 +121,5 @@ try {
 } catch {
     Write-Output "An error occurred while trying to install $appName. Please check the application name and try again."
 }
+
+
