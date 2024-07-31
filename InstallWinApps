@@ -1,0 +1,17 @@
+# Check if winget is installed
+if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+    Write-Output "winget is not installed on this system."
+    Write-Output "Please install winget and try again."
+    exit
+}
+
+# Prompt user for application name
+$appName = Read-Host "Enter the name of the application to install"
+
+# Install the application using winget
+try {
+    winget install --name "$appName" --silent
+    Write-Output "Installation of $appName has completed."
+} catch {
+    Write-Output "An error occurred while trying to install $appName. Please check the application name and try again."
+}
