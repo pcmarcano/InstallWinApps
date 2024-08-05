@@ -15,7 +15,6 @@ $buildVersion = $osVersion.Build
 Write-Host "Windows $majorVersion Build $buildVersion"
 
 
-
 # Check if winget is installed
 function checkWinget {
     if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
@@ -27,10 +26,8 @@ function checkWinget {
 }
 
 
-
 # Check if the computer is conected to the internet
 function CheckInternetOne {
-
     # Using Test-Connection to check internet connectivity
     $test = Test-Connection -ComputerName www.google.com -Count 1 -Quiet
 
@@ -41,6 +38,7 @@ function CheckInternetOne {
         return $false
     }
 }
+
 
 function CheckInternetTwo {
 
@@ -58,6 +56,7 @@ function CheckInternetTwo {
     }
 }
 
+
 function menu {
     <#     param (
         OptionalParameters
@@ -65,28 +64,137 @@ function menu {
 
     # Prompt the user for input
     Write-Host "Please choose an option (1, 2, or 3):"
-    Write-Host "1. PowerShell"
-    Write-Host "2. Option 2"
+    Write-Host "1. Uninstall"
+    Write-Host "2. Install"
     Write-Host "3. Option 3"
     $choice = Read-Host "Enter your choice"
 
+    <# return $choice #>
     # Process the input
     switch ($choice) {
         "1" {
-            Write-Host "Getting PowerShell"
-            winget install 9MZ1SNWT0N5D
+            <# Write-Host "Uninstall" #>
+            uninstall
         }
         "2" {
-            Write-Host "You chose: patushb"
+            <# Write-Host "Install." #>
+            install
         }
         "3" {
-            Write-Host "You chose: patushc"
+            <# Write-Host "You chose: patushc" #>
+            Other
         }
         default {
             Write-Host "Invalid choice. Please enter a number between 1 and 3."
         }
     }
+
 }
+
+
+
+function uninstall {
+    <# param (
+        OptionalParameters
+    ) #>
+    Clear-Host
+    Write-Host "Uninstall"
+    Write-Host "Please choose an option (1, 2, or 3) r: return"
+    $choice = Read-Host "Enter your choice"
+    switch ($choice) {
+        "1" {
+            Write-Host "Option 1"
+            
+        }
+        "2" {
+            Write-Host "Option 2"
+            
+        }
+        "3" {
+            Write-Host "Option 3"
+            
+        }
+        "x" {
+            Write-Host "Return"
+            Clear-Host
+            menu
+        }
+        default {
+            Write-Host "Invalid choice."
+            uninstall
+        }
+    }
+}
+
+function install {
+    <# param (
+        OptionalParameters
+    ) #>
+    Clear-Host
+    Write-Host "Install"
+    Write-Host "Please choose an option (1, 2, or 3) r: return"
+    $choice = Read-Host "Enter your choice"
+    switch ($choice) {
+        "1" {
+            Write-Host "Option 1"
+            
+        }
+        "2" {
+            Write-Host "Option 2"
+            
+        }
+        "3" {
+            Write-Host "Option 3"
+            
+        }
+        "x" {
+            Write-Host "Return"
+            Clear-Host
+            menu
+        }
+        default {
+            Write-Host "Invalid choice."
+            uninstall
+        }
+    }
+}
+
+function Other {
+    <# param (
+        OptionalParameters
+    ) #>
+    Clear-Host
+
+    Write-Host "Please choose an option (1, 2, or 3) r: return"
+    $choice = Read-Host "Enter your choice"
+    switch ($choice) {
+        "1" {
+            Write-Host "Option 1"
+            
+        }
+        "2" {
+            Write-Host "Option 2"
+            
+        }
+        "3" {
+            Write-Host "Option 3"
+            
+        }
+        "x" {
+            Write-Host "Return"
+            Clear-Host
+            menu
+        }
+        default {
+            Write-Host "Invalid choice."
+            uninstall
+        }
+    }
+    
+}
+
+
+# ----------------------------------------------------------
 
 $winGet = checkWinget
 if ($winGet) {
@@ -111,6 +219,9 @@ if ($winGet) {
     }
 }
 
+
+
+
 # Prompt user for application name
 $appName = Read-Host "Enter the name of the application to install"
 
@@ -121,5 +232,3 @@ try {
 } catch {
     Write-Output "An error occurred while trying to install $appName. Please check the application name and try again."
 }
-
-
