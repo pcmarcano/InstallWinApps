@@ -196,6 +196,7 @@ function Other {
 
 # ----------------------------------------------------------
 
+
 $winGet = checkWinget
 if ($winGet) {
     Write-Host "WinGet installed"
