@@ -1,0 +1,48 @@
+Audacity 3.5.1
+Bitdefender Agent
+Git
+GDR 1121 para SQL Server 2022 (KB5040936) (64-bit)
+Microsoft SQL Server 2022 (64-bit)
+Microsoft SQL Server 2022 (64-bit)
+SQL Server 2022 SQL Diagnostics
+Microsoft ODBC Driver 17 for SQL Server
+SQL Server 2022 Shared Management Objects
+SQL Server 2022 Database Engine Shared
+Microsoft Update Health Tools
+SQL Server 2022 Shared Management Objects Extensions
+SQL Server 2022 DMF
+Microsoft SQL Server 2022 RsFx Driver
+SQL Server 2022 Database Engine Services
+SQL Server 2022 Common Files
+SQL Server 2022 Shared Management Objects
+Microsoft OLE DB Driver for SQL Server
+SQL Server 2022 Connection Info
+SQL Server 2022 Batch Parser
+Microsoft Visual C++ 2019 X64 Additional Runtime - 14.29.30139
+Update for Windows 10 for x64-based Systems (KB5001716)
+SQL Server 2022 Common Files
+SQL Server 2022 XEvent
+Oracle VM VirtualBox 7.0.20
+Microsoft SQL Server 2022 Setup (English)
+SQL Server 2022 Shared Management Objects Extensions
+Microsoft Visual C++ 2019 X64 Minimum Runtime - 14.29.30139
+Microsoft Teams Meeting Add-in for Microsoft Office
+Microsoft VSS Writer for SQL Server 2022
+SQL Server 2022 XEvent
+SQL Server 2022 Database Engine Services
+PowerShell 7-x64
+SQL Server 2022 Database Engine Shared
+SQL Server 2022 DMF
+Node.js
+SQL Server 2022 Connection Info
+Microsoft Edge
+Microsoft Edge Update
+WebView2 Runtime de Microsoft Edge
+Microsoft Visual C++ 2019 X86 Minimum Runtime - 14.29.30139
+Microsoft Visual C++ 2019 X86 Additional Runtime - 14.29.30139
+Microsoft Visual C++ 2015-2019 Redistributable (x64) - 14.29.30139
+Microsoft Visual C++ 2015-2019 Redistributable (x86) - 14.29.30139
+Browser for SQL Server 2022
+Microsoft Teams
+Zoom Workplace
+Microsoft Visual Studio Code (User)
