@@ -17,7 +17,7 @@ $buildVersion = $osVersion.Build
 Write-Host "Windows $majorVersion Build $buildVersion"
 
 
-# MARK: Precheck
+# MARK: PreCheck
 
 # Check if winget is installed
 function checkWinget {
@@ -88,7 +88,7 @@ function installWUM {
 
 # 
 # ----------------------------------------------------------
-# MARK: Menus Start
+# MARK: Main Menu
 
 function menu {
     <#     param (
@@ -98,7 +98,7 @@ function menu {
     # Prompt the user for input
     Write-Host "Please choose an option (1, 2, or 3):"
     Write-Host "0. Update"
-    Write-Host "1. Uninstall"
+    Write-Host "1. Remove"
     Write-Host "2. Install"
     Write-Host "3. Other"
     $choice = Read-Host "Enter your choice"
@@ -112,7 +112,7 @@ function menu {
         }
         "1" {
             <# Write-Host "Uninstall" #>
-            menuUninstall
+            menuRemove
         }
         "2" {
             <# Write-Host "Install." #>
@@ -174,13 +174,13 @@ function menuWinUpdate {
 
 # 
 # ----------------------------------------------------------
-# MARK: Menu Uninstall
-function menuUninstall {
+# MARK: Menu Remove
+function menuRemove {
     <# param (
         OptionalParameters
     ) #>
     Clear-Host
-    Write-Host "Uninstall"
+    Write-Host "Remove"
     Write-Host "Please choose an option (1, 2, or 3) r: return"
     $choice = Read-Host "Enter your choice"
     switch ($choice) {
@@ -331,6 +331,17 @@ function disableSearchBar {
     Set-ItemProperty -Path $registryPath -Name "SearchboxTaskbarMode" -Value 0
 
     Write-Output "Search bar has been hidden. You may need to restart your computer or Explorer for changes to take effect."
+
+    # Or try this other methord
+    # Set the registry key to hide the search box
+    #Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Value 0
+
+    # Restart the Explorer process to apply the change
+    #Stop-Process -Name explorer -Force
+    #Start-Process explorer
+
+
+
 
 }
 

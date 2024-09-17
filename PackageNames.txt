@@ -1,9 +1,9 @@
-Audacity 3.5.1
-Bitdefender Agent
+Mullvad VPN 2024.4.0
 Git
 GDR 1121 para SQL Server 2022 (KB5040936) (64-bit)
 Microsoft SQL Server 2022 (64-bit)
 Microsoft SQL Server 2022 (64-bit)
+Monero GUI Wallet version 0.18.3.3
 SQL Server 2022 SQL Diagnostics
 Microsoft ODBC Driver 17 for SQL Server
 SQL Server 2022 Shared Management Objects
@@ -35,6 +35,7 @@ SQL Server 2022 Database Engine Shared
 SQL Server 2022 DMF
 Node.js
 SQL Server 2022 Connection Info
+PDFsam Basic
 Microsoft Edge
 Microsoft Edge Update
 WebView2 Runtime de Microsoft Edge
